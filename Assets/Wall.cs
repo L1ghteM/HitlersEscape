@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
-    public float speed;
+    public float speed = -0.01f;
+    public GameObject GameManager;
+    public GameManager gm;
+    public WallSpawner ws;
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameManager = GameObject.Find("GameManager");
+        gm = GameManager.GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -18,9 +22,14 @@ public class Wall : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(collision.gameObject);
         }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        gm.score += 1;
+
     }
 }
