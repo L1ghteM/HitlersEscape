@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Wall : MonoBehaviour
 {
-    public float speed = -0.01f;
+    public float speed;
     public GameObject GameManager;
     public GameManager gm;
     public WallSpawner ws;

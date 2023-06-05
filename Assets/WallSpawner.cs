@@ -27,7 +27,6 @@ public class WallSpawner : MonoBehaviour
     }
     IEnumerator SpeedChange()
     {
-        speed = -0.01f;
         yield return new WaitForSeconds(5);
         StartCoroutine(SpeedChange());
     }
